@@ -1,13 +1,9 @@
 import React, { Component } from "react";
-// import DeleteBtn from "../components/DeleteBtn";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
-// import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
-// import { List, ListItem } from "../components/List";
 import SearchForm from "../components/SearchForm";
 import SearchResultList from "../components/SearchResultList";
-// import { Input, TextArea, FormBtn } from "../components/Form";
 
 class Search extends Component {
   state = {
@@ -54,7 +50,7 @@ class Search extends Component {
     });
   };
 
-  // When the form is submitted, search the Giphy API for `this.state.search`
+  // When the form is submitted, search the Google Books API for `this.state.search`
   handleFormSubmit = (event) => {
     event.preventDefault();
     this.searchBooks(this.state.search);
