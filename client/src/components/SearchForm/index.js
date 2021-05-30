@@ -5,7 +5,7 @@ function SearchForm(props) {
     <div className="card mb-3">
       <div className="card-header">Book Search</div>
       <div className="card-body">
-        <form>
+        <form autoComplete="off">
           <div className="form-group">
             <input
               onChange={props.handleInputChange}
