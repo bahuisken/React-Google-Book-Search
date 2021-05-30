@@ -1,13 +1,13 @@
-import React, { useState, useEffect, Component } from "react";
-import DeleteBtn from "../components/DeleteBtn";
+import React, { Component } from "react";
+// import DeleteBtn from "../components/DeleteBtn";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
-import { List, ListItem } from "../components/List";
+// import { List, ListItem } from "../components/List";
 import SearchForm from "../components/SearchForm";
-import ResultList from "../components/ResultList";
-import { Input, TextArea, FormBtn } from "../components/Form";
+import SearchResultList from "../components/SearchResultList";
+// import { Input, TextArea, FormBtn } from "../components/Form";
 
 class Search extends Component {
   state = {
@@ -15,12 +15,35 @@ class Search extends Component {
     results: [],
   };
 
-  // When this component mounts, search the Giphy API for pictures of kittens
+  componentDidMount() {
+    this.searchBooks();
+  }
+
+  createBook = (bookData) => {
+    return {
+      _id: bookData.id,
+      title: bookData.volumeInfo.title,
+      authors: bookData.volumeInfo.authors,
+      description: bookData.volumeInfo.description,
+      image: bookData.volumeInfo.imageLinks.thumbnail,
+      link: bookData.volumeInfo.previewLink,
+    };
+  };
 
   searchBooks = (query) => {
-    API.googleBookSearch(query)
-      .then((res) => this.setState({ results: res.data.items }))
-      .catch((err) => console.log(err));
+    if (query !== undefined) {
+      API.googleBookSearch(query)
+        .then((res) =>
+          this.setState({
+            results: res.data.items.map((bookData) =>
+              this.createBook(bookData)
+            ),
+          })
+        )
+        .catch((err) => console.log(err));
+    } else {
+      return;
+    }
   };
 
   handleInputChange = (event) => {
@@ -43,7 +66,15 @@ class Search extends Component {
         <Row>
           <Col size="12">
             <Jumbotron>
-              <h1>React Google Book Search</h1>
+              <h1>
+                React{" "}
+                <img
+                  src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+                  style={{ height: "2.5rem" }}
+                  alt="Google Logo"
+                />{" "}
+                Book Search
+              </h1>
               <h3>Search for and Save Books of Interest</h3>
             </Jumbotron>
             <SearchForm
@@ -51,7 +82,7 @@ class Search extends Component {
               handleFormSubmit={this.handleFormSubmit}
               handleInputChange={this.handleInputChange}
             />
-            <ResultList results={this.state.results} />
+            <SearchResultList results={this.state.results} />
           </Col>
         </Row>
       </Container>

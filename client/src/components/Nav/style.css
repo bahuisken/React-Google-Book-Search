@@ -1,0 +1,15 @@
+.current-link {
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.nav-link-custom {
+  color: #ffffff;
+  padding: 10px 10px;
+}
+
+.nav-link-custom:hover {
+  color: #cccccc;
+  text-decoration: none;
+}
