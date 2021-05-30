@@ -13,7 +13,6 @@ class SearchResultList extends Component {
   }
 
   handleBookSave = (book) => {
-    console.log("am i here?");
     if (this.state.savedBooks.map((book) => book._id).includes(book._id)) {
       API.deleteBook(book._id)
         .then((deletedBook) =>

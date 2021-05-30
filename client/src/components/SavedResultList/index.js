@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 
-class SearchResultList extends Component {
+class SavedResultList extends Component {
   state = {
     savedBooks: [],
   };
@@ -78,7 +78,7 @@ class SearchResultList extends Component {
                   </div>
                 </div>
               ) : (
-                <h2>No Results to display</h2>
+                ""
               )}
             </>
           ))}
@@ -88,4 +88,4 @@ class SearchResultList extends Component {
   }
 }
 
-export default SearchResultList;
+export default SavedResultList;

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
-import SavedResultList from "../components/SearchResultList copy";
+import SavedResultList from "../components/SavedResultList";
 
 class Saved extends Component {
   state = {
