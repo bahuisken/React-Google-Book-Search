@@ -6,12 +6,14 @@ class SavedResultList extends Component {
     savedBooks: [],
   };
 
+  // load saved books when Saved page renders
   componentDidMount() {
     API.savedBooks()
       .then((savedBooks) => this.setState({ savedBooks: savedBooks }))
       .catch((err) => console.error(err));
   }
 
+  // Function to handle deletion of books
   handleBookDelete = (book) => {
     console.log("am i deleting?");
     API.deleteBook(book._id)
@@ -29,7 +31,8 @@ class SavedResultList extends Component {
       <div className="card mb-3">
         <div className="card-header text-dark">Results</div>
         <div className="card-body">
-          {!this.props.results.length ? <h2>No Results to display</h2> : ""}
+          {/* If no results, show text  */}
+          {!this.props.results.length ? <h2>No Saved Books to display</h2> : ""}
           {this.props.results.map((result) => (
             <>
               {this.state.savedBooks

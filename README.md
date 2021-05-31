@@ -26,16 +26,23 @@ A React-based Google Books Search app that allows a user to search for, and save
 
 - A user can perform the following
 
-  - Filter the list of employees by first or last name by entering name into text field. Employee list will automatically filter as user enters txt
-  - Sort employees by the following: - First Name ascending - First Name descending - Last Name ascending - Last Name descending - Date of Birth ascending - Date of Birth descending
+  - Search for Books by entering an Author or Title into the search form
+  - When the Results are rendered, the user can click to view the book information on books.google.com
+  - The user can also save the book to a list of saved books
+  - When a book is saved, it is removed from the search results
+  - The user can view the saved page to view their list of books
+  - On the saved page, the user can can click to view the book information on books.google.com
+  - On the saved page, the user can delete books from the saved list
 
 ## Deployed Application Link
 
-- [Deployed Link](https://bahuisken.github.io/Employee-Directory/)
+- [Deployed Link](https://react-google-book-search-bah.herokuapp.com/)
 
-- Screenshots of the application:
+## Screenshots
 
-<img src="./assets/images/Employee-Tracker.gif" width="640">
+![Mobile Portfolio demo](./assets/images/react-google-book-search-mobile.png)
+
+![Desktop Portfolio demo](./assets/images/react-google-book-search-desktop.png)
 
 ## Credits
 
@@ -52,7 +59,7 @@ None
 
 ## Tests
 
-N/A
+Tested locally with Insomnia, Studio3T. Tested deployed with MongoDBAtlas, Heroku
 
 ## Questions
 

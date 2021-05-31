@@ -12,6 +12,7 @@ class SearchResultList extends Component {
       .catch((err) => console.error(err));
   }
 
+  // Function to handle the saving of books
   handleBookSave = (book) => {
     if (this.state.savedBooks.map((book) => book._id).includes(book._id)) {
       API.deleteBook(book._id)
@@ -38,9 +39,15 @@ class SearchResultList extends Component {
       <div className="card mb-3">
         <div className="card-header text-dark">Results</div>
         <div className="card-body">
-          {!this.props.results.length ? <h2>No Results to display</h2> : ""}
+          {/* If no search reults, display text */}
+          {!this.props.results.length ? (
+            <h2>No Search Results to display</h2>
+          ) : (
+            ""
+          )}
           {this.props.results.map((result) => (
             <>
+              {/* If a book in the search results is on the saved list, don't display it */}
               {this.state.savedBooks
                 .map((book) => book._id)
                 .includes(result._id) ? (

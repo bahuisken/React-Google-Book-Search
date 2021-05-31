@@ -9,6 +9,7 @@ class Saved extends Component {
     savedBooks: [],
   };
 
+  // Load saved books and setState
   componentDidMount() {
     API.savedBooks()
       .then((savedBooks) => this.setState({ savedBooks: savedBooks }))
